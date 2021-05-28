@@ -1,0 +1,40 @@
+<h2>
+  Grille hexa
+</h2>
+
+<svg [attr.width]="width" [attr.height]="height" id="demo-tiger">
+  <!--
+  <app-hex-view [h]="h"></app-hex-view>
+-->
+  <g
+    *ngFor="let h of hexTab"
+    [attr.transform]="'translate('+translation(h)+')'"
+  >
+    <polygon
+      [attr.points]="hexPoints()"
+      [attr.fill]="getFillColor(h)"
+      [attr.stroke]="getStrokeColor(h)"
+      stroke-width="1"
+      (click)="hexClicked(h)"
+    ></polygon>
+  </g>
+
+  <g
+    *ngIf="selectedHex"
+    [attr.transform]="'translate('+translation(selectedHex)+')'"
+  >
+    <polygon
+      [attr.points]="hexPoints()"
+      fill="transparent"
+      stroke="red"
+      stroke-width="1"
+      (click)="hexClicked(selectedHex)"
+    ></polygon>
+
+    <image xlink:href="/ass/2917/fxlogo.png" x="0" y="0" height="100" width="100" />
+
+    <text font-size="5" y="-3" text-anchor="middle" cursor="default">
+      {{ hexNumber(selectedHex) }}
+    </text>
+  </g>
+</svg>

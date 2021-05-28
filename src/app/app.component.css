@@ -1,0 +1,9 @@
+p {
+  font-family: Lato;
+}
+
+svg {
+  border: 1px solid black;
+  margin: 20px;
+  background: ghostwhite;
+}
